@@ -2,6 +2,23 @@
 #
 # Copyright (c) 2022 Nuvoton Technology Corporation.
 
+if(CONFIG_HAS_NUMAKER_STDDRIVER)
+    # Add all StdDriver "*.c" files recursively
+    FILE(GLOB_RECURSE stddriver_sources
+        RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+        "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
+    )
+
+    # Exclude unsupported files
+    list(REMOVE_ITEM stddriver_sources
+        src/retarget.c
+        src/sc.c
+    )
+
+    zephyr_library_sources(${stddriver_sources})
+    return()
+endif()
+
 zephyr_library_sources_ifdef(CONFIG_HAS_NUMAKER_HAL src/sys.c)
 
 zephyr_library_sources(src/clk.c)
