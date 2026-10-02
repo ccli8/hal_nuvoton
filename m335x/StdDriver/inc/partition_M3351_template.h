@@ -71,14 +71,14 @@
 /*
 //    <o> Secure DFMC Flash Size <0x1000-0x10000:0x1000>
 */
-#define DFMC_SECURE_REGION_SIZE      0x4000UL
+#define DFMC_SECURE_REGION_SIZE      0x10000UL
 #define DFMC_SECURE_END              (DFMC_DATA_FLASH_BASE + DFMC_SECURE_REGION_SIZE)
 #define DFMC_NON_SECURE_BASE         (DFMC_SECURE_END + NS_OFFSET)
 
 /*
 // <e> Enable EEPROM
 */
-#define DFMC_ENABLE_EEPROM          1UL
+#define DFMC_ENABLE_EEPROM          0UL
 
 /*
 // <o.0>  EEPROM Secure Attribute   <1=> Secure <0=> Non-Secure
